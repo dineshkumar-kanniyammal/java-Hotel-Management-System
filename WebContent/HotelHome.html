@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hotel Management System</title>   
+<style type="text/css">
+function validateLogin() {
+var user = document.getElementById("auth_user");
+var pass = document.getElementById("auth_key");
+var type = document.getElementsByName("user_type");
+if(user.value === "") {
+user.focus();
+alert("Enter Customer Id");
+return false;
+} else if(user.value.length !== 6) {
+user.focus();
+alert("Enter Valid Customer Id");
+return false;
+} else if(pass.value === "") {
+pass.focus();
+alert("Enter Password");
+return false;
+} else {
+for(var i = 0; i < type.length; i++) {
+if(type[i].checked) {
+return true;
+}
+}
+alert("Choose Customer / Administrator");
+return false;
+}
+return true;
+}
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent url('images/DXC.jpg')  ;
+	background-size: page;
+	
+}
+.main-content {
+	width: 700px auto;
+	margin: 300px auto;
+	padding: 30px 0;
+	background: rgba(256, 256, 256, 0.8);
+	border-radius: 3px;
+}
+label {
+	cursor: pointer;
+}
+</style>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" type="text/css" />
+</head>
+<body>
+<div class="main-content">
+<form class="form-horizontal" method="post" action="Javaloginvalidation" >
+  <div class="form-group">
+    <label for="auth_phone" class="col-sm-7 control-label">Customer ID</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="auth_user" name="auth_user" placeholder="User Id">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="auth_key" class="col-sm-7 control-label">Password</label>
+    <div class="col-sm-3">
+      <input type="password" class="form-control" name="auth_key" id="auth_key" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+  	<label class="col-sm-7 control-label">&nbsp;</label>
+    <div class="col-sm-2">
+      <label>
+	      <input type="radio" name="user_type" value="Admin" /> Admin
+	  </label>
+    </div>
+    <div class="col-sm-2">
+      <label>
+	      <input type="radio" name="user_type" value="User" /> User
+	  </label>
+    </div>
+   
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-7 col-sm-6">
+      <button type="submit" class="btn btn-primary col-sm-6">Sign in</button>
+    </div>
+ </div>
+ 
+  <div class="form-group">
+  	<div class="col-sm-offset-7 col-sm-6">
+  		<a class="btn btn-success col-sm-6" href="customercreatenewaccount.jsp" role="button">Create an Account</a>
+  	</div>
+  </div>
+</form>
+</div>
+</body>
+</html>
